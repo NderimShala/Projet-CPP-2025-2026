@@ -1,11 +1,11 @@
 #include "Car.h"
 
-int numOption = 0;
 
 Car::Car()
 {
     cout << "appel du constructeur par défaut de Car" << endl;
     for(int i = 0; i<5; i++) option[i] = nullptr;
+    setnumOption(0);
     setName("Default");
 
 
@@ -21,6 +21,8 @@ Car::Car(string n, const Model& m)
     
     setModel(m);
 
+    setnumOption(0);
+
 
 }
 
@@ -33,6 +35,14 @@ Car::Car(const Car& c)
     setName(c.getName());
 
     setModel(c.getModel());
+
+    setnumOption(c.getnumOption());
+
+    for (int i =0; i<getnumOption(); i++)
+    {
+        if(c.option[i] != nullptr)
+            option[i] = new Option(*c.option[i]);
+    }
 
 }
 
@@ -58,6 +68,11 @@ void Car::setModel(const Model& m)
 
 }
 
+void Car::setnumOption(int n)
+{
+    numOption = n;
+}
+
 string Car::getName() const
 {
     return projectName;
@@ -78,33 +93,41 @@ float Car::getPrice() const
     return model.getBasePrice() + OptionsPrice;
 }
 
+int Car::getnumOption() const
+{
+    return numOption;
+}
+
 
 void Car::display() const
 {
     cout << "projet : "<< projectName << endl;
     model.display();
-    for(int i=0; i<numOption; i++) option[i]->display();
+    for(int i=0; i<getnumOption(); i++) option[i]->display();
 }
 
 void Car::addOption(const Option& option)
 {  
-    if(numOption < 5)
+    if(getnumOption() < 5)
     {
-        this->option[numOption] = new Option(option);
-        numOption++;
+        this->option[getnumOption()] = new Option(option);
+        setnumOption(getnumOption()+1);
     }
     else cout << "nombre d'option max" << endl;
 }
 
 void Car::removeOption(const string code)
 {
-    for (int i=0; i<5; i++)
+    for (int i=0; i<getnumOption(); i++)
     {
         if(option[i] != nullptr && option[i]->getCode() == code)
         {
             delete option[i];
-            option[i] = nullptr;
-            if (numOption > 0) numOption--;
+
+            for (int j=i; j<getnumOption() -1; j++)
+                option[j] = option[j+1];
+            option[getnumOption() - 1] = nullptr;
+            setnumOption(getnumOption()-1);
             cout << "Option " << code << " supprimée" << endl;
             return;
         }

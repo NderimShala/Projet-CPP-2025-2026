@@ -15,6 +15,7 @@ class Car
         string projectName;
         Model model;
         Option* option[5];
+        int numOption;
         
 
     public:
@@ -25,10 +26,12 @@ class Car
 
         void setName(string N);
         void setModel(const Model& m);
+        void setnumOption(int n);
 
         string getName() const;
         Model getModel() const;
         float getPrice() const;//////////
+        int getnumOption() const;
 
         void display() const;//////////
         void addOption(const Option& option);//////////

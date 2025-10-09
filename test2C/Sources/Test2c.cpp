@@ -26,7 +26,7 @@ int main()
   car.removeOption("ZH75");
   car.display();
   std::cout << "Prix du projet : " << car.getPrice() << " euros" << std::endl << std::endl;
-/*
+
   std::cout << "(5) ***** on ajoute une derniere option ********************************************" << std::endl;
   car.addOption(Option("FE10","Pack LED",350.0f));
   car.display();
@@ -44,7 +44,7 @@ int main()
 
   std::cout << "(7) ***** on regarde si le projet de depart n'a pas ete modifie ********************" << std::endl;
   car.display();
-*/
+
   return 0;
 }
 
