@@ -134,3 +134,14 @@ void Car::removeOption(const string code)
     }
     cout << "Option " << code << " non trouvée" << endl;
 }
+
+Car& Car::operator=(const Car& c) //Mauvais, A changer
+{
+    setnumOption(c.getnumOption());
+    setName(c.getName());
+    setModel(c.getModel());
+    for(int i=0;i<numOption; i++)
+    {
+        addOption(*(c.option[i]));
+    }
+}

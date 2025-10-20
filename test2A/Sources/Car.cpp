@@ -1,4 +1,5 @@
 #include "Car.h"
+using namespace carconfig;
 
 Car::Car()
 {

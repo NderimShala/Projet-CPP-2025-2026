@@ -3,7 +3,7 @@
 #include "Option.h"
 #include "Car.h"
 
-//using namespace carconfig;
+using namespace carconfig;
 
 // Tests de la classe Car (avec options)
 

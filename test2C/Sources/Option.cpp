@@ -1,4 +1,5 @@
 #include "../Headers/Option.h"
+using namespace carconfig;
 
 Option::Option()
 {

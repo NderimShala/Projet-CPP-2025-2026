@@ -1,4 +1,5 @@
 	#include "Model.h"
+	using namespace carconfig;
 
 	Model::Model() // constructeur par défaut
 	{

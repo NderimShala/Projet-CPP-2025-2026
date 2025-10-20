@@ -9,34 +9,38 @@
 
 using namespace std;
 
-class Car
+namespace carconfig
 {
-    private:
-        string projectName;
-        Model model;
-        Option* option[5];
-        int numOption;
-        
+    class Car
+    {
+        private:
+            string projectName;
+            Model model;
+            Option* option[5];
+            int numOption;
 
-    public:
-        Car();
-        Car(string n, const Model& m);
-        Car(const Car& c);
-        ~Car();
+            void setnumOption(int n);
 
-        void setName(string N);
-        void setModel(const Model& m);
-        void setnumOption(int n);
+        public:
+            Car();
+            Car(string n, const Model& m);
+            Car(const Car& c);
+            ~Car();
 
-        string getName() const;
-        Model getModel() const;
-        float getPrice() const;//////////
-        int getnumOption() const;
+            void setName(string N);
+            void setModel(const Model& m);
 
-        void display() const;//////////
-        void addOption(const Option& option);//////////
-        void removeOption(const string code);//////////
+            string getName() const;
+            Model getModel() const;
+            float getPrice() const;//////////
+            int getnumOption() const;
 
-};
+            void display() const;//////////
+            void addOption(const Option& option);//////////
+            void removeOption(const string code);//////////
+
+    };   
+}
+
 
 #endif
