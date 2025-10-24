@@ -7,9 +7,9 @@ Test3 : $(SOURCES)Test3.cpp $(OBJETS)Car.o $(OBJETS)Model.o $(OBJETS)Option.o
 	echo Création de Test3
 	g++ $(SOURCES)Test3.cpp -I $(HEADERS) $(OBJETS)Car.o $(OBJETS)Model.o $(OBJETS)Option.o -o Test3
 
-$(OBJETS)Car.o : $(HEADERS)Car.h $(SOURCES)Car.cpp $(OBJETS)Model.o $(OBJETS)Option.o
+$(OBJETS)Car.o : $(HEADERS)Car.h $(SOURCES)Car.cpp
 	echo Création de Car.o
-	g++ -c $(SOURCES)Car.cpp -I $(HEADERS) -o $(OBJETS)Car.o $(OBJETS)Option.o
+	g++ -c $(SOURCES)Car.cpp -I $(HEADERS) -o $(OBJETS)Car.o
 
 $(OBJETS)Model.o : $(SOURCES)Model.cpp $(HEADERS)Model.h
 	echo Création de Model.o

@@ -7,10 +7,10 @@ using namespace carconfig;
 int  Menu();
 void Essai1();
 void Essai2();
-/*void Essai3();
+void Essai3();
 void Essai4();
 void Essai5();
-void Essai6();
+/*void Essai6();
 void Essai7();
 void Essai8();
 void Essai9();*/
@@ -28,10 +28,10 @@ int main(int argc,char* argv[])
     {
       case 1 : Essai1(); break;
       case 2 : Essai2(); break;
-      /*case 3 : Essai3(); break;
+      case 3 : Essai3(); break;
       case 4 : Essai4(); break;
       case 5 : Essai5(); break;
-      case 6 : Essai6(); break;
+      /*case 6 : Essai6(); break;
       case 7 : Essai7(); break;
       case 8 : Essai8(); break;
       case 9 : Essai9(); break;*/
@@ -127,7 +127,7 @@ void Essai2()
 /*******************************************************************************************************/
 /*** Tests des opérateurs - de la classe Car ***********************************************************/
 /*******************************************************************************************************/
-/*
+
 void Essai3()
 {
   std::cout << std::endl << "********************************************************************" << std::endl;
@@ -149,7 +149,7 @@ void Essai3()
 /*******************************************************************************************************/
 /*** Test des opérateurs < > == de la classe Car *******************************************************/
 /*******************************************************************************************************/
-/*
+
 void Essai4()
 {
   std::cout << "**********************************************************************" << std::endl;
@@ -157,7 +157,7 @@ void Essai4()
   std::cout << "**********************************************************************" << std::endl;
 
   Car c1("Projet1_208_MrDugenou",Model("208 Access 1.0",68,Engine::Petrol,12500.0f));
-  c1.addOption(Option("0MM0","Peinture metallisee",450.0f));
+  c1.addOption(Option("0MM0","Peinture metallisee",950.0f));
   std::cout << "---- Projet 1 --------------------" << std::endl;
   c1.display();
   std::cout << "Prix du projet 1 = " << c1.getPrice() << " euros" << std::endl << std::endl;
@@ -178,7 +178,7 @@ void Essai4()
 /*******************************************************************************************************/
 /*** Test des opérateurs << et >> de la classe Option **************************************************/
 /*******************************************************************************************************/
-/*
+
 void Essai5()
 {
   std::cout << "**********************************************************************" << std::endl;

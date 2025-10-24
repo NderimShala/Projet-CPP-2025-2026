@@ -41,6 +41,18 @@ namespace carconfig
 
             Car& operator=(const Car& c);
 
+            Car operator+(const Option& o) const;
+            friend Car operator+(const Option& o,const Car& c);
+
+            Car operator-(const Option& o);
+            Car operator-(const string& s);
+
+            bool operator<(const Car& c) const;
+            bool operator>(const Car& c) const;
+            bool operator==(const Car& c) const;
+
+
+
     };   
 }
 
