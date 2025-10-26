@@ -197,4 +197,10 @@ namespace carconfig {
         if(this->getPrice()==c.getPrice()) return true;
         return false;
     }
+
+    ostream& operator<<(ostream& s, const Car& c)
+    {
+        c.display();
+        return s;
+    }
 } // end of carconfig

@@ -10,9 +10,9 @@ void Essai2();
 void Essai3();
 void Essai4();
 void Essai5();
-/*void Essai6();
+void Essai6();
 void Essai7();
-void Essai8();
+/*void Essai8();
 void Essai9();*/
 
 int main(int argc,char* argv[])
@@ -31,9 +31,9 @@ int main(int argc,char* argv[])
       case 3 : Essai3(); break;
       case 4 : Essai4(); break;
       case 5 : Essai5(); break;
-      /*case 6 : Essai6(); break;
+      case 6 : Essai6(); break;
       case 7 : Essai7(); break;
-      case 8 : Essai8(); break;
+      /*case 8 : Essai8(); break;
       case 9 : Essai9(); break;*/
       default : fini = true ; break;
     }
@@ -194,7 +194,7 @@ void Essai5()
 /*******************************************************************************************************/
 /*** Test des opérateurs << et >> de la classe Model ***************************************************/
 /*******************************************************************************************************/
-/*
+
 void Essai6()
 {
   std::cout << "**********************************************************************" << std::endl;
@@ -203,14 +203,14 @@ void Essai6()
   Model m;
   std::cout << "Saisissez un nouveau modele :" << std::endl;
   std::cin >> m;
-  std::cout << std::endl << "Voici le modele que vous avez encode :" << std::endl;
+  std::cout << std::endl << "Voici le modele que vous avez encodé :" << std::endl;
   std::cout << m << std::endl << std::endl;
 }
 
 /*******************************************************************************************************/
 /*** Test de l'opérateur << de la classe Car ***********************************************************/
 /*******************************************************************************************************/
-/*
+
 void Essai7()
 {
   std::cout << "**********************************************************************" << std::endl;

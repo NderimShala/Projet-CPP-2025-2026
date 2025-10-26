@@ -51,7 +51,7 @@ namespace carconfig
             bool operator>(const Car& c) const;
             bool operator==(const Car& c) const;
 
-
+            friend ostream& operator<<(ostream& s, const Car& c);
 
     };   
 }

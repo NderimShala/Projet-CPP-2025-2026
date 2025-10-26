@@ -37,6 +37,9 @@ namespace carconfig
 		float getBasePrice() const;
 
 		void display() const;
+
+		friend istream& operator>>(istream& s, Model& o);
+        friend ostream& operator<<(ostream& s,const Model& o);
 	};	
 }
 

@@ -1,6 +1,7 @@
-	#include "Model.h"
-	using namespace carconfig;
+#include "Model.h"
 
+namespace carconfig
+{
 	Model::Model() // constructeur par défaut
 	{
 		name = nullptr;
@@ -82,3 +83,45 @@
 		cout << "Moteur : " << engine << endl; // !!!
 		cout << "Prix de base : " << basePrice << endl;
 	}
+
+	istream& operator>>(istream& s, Model& o)
+	{
+		string ntmp;
+		int ptmp, m;
+		Engine etmp;
+		float btmp;
+		cout << "Nom du model : " << endl;
+		cin >> ntmp;
+		cout << "Puissance en Ch : " << endl;
+		cin >> ptmp;
+		cout << "Motorisation (1 = Petrol, 2 = Diesel, 3 = Elec, 4 = Hybrid): " << endl;
+		cin >> m;
+		if(m == 1) etmp = Petrol;
+		else if(m == 2) etmp = Diesel;
+		else if(m == 3) etmp = Electric;
+		else if(m == 4) etmp = Hybrid;
+		cout << "Prix : " << endl;
+		cin >> btmp;
+
+		const char* nom = ntmp.c_str();
+
+		o.setName(nom);
+		o.setPower(ptmp);
+		o.setEngine(etmp);
+		o.setBasePrice(btmp);
+
+		
+		return s;
+		
+	}
+
+	ostream& operator<<(ostream& s,const Model& o)
+	{
+		cout << " Nom du model : " << o.getName() << endl << "Puissance : " << o.getPower() << endl << "Motorisation : " << o.getEngine() << endl << "Prix : " << o.getBasePrice() << endl;
+		
+		return s;
+	}
+
+}
+
+	
