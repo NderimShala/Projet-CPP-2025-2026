@@ -53,6 +53,8 @@ namespace carconfig
 
             friend ostream& operator<<(ostream& s, const Car& c);
 
+            Option* operator[](int i);
+
     };   
 }
 

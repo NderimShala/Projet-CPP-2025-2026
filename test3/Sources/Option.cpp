@@ -97,4 +97,21 @@ namespace carconfig
         cout<<"Code : " << o.getCode() << endl << "Label : " << o.getLabel() << endl << "Prix : " << o.getPrice() << endl;
         return s;
     }
+
+    Option Option::operator--()
+    {
+        if(this->price >= 50) this->price = this->price - 50;
+        else this->price = 0;
+        return (*this);
+    }
+
+    Option Option::operator--(int)
+    {
+        Option temp(*this);
+        if(this->price >= 50) this->price = this->price - 50;
+        else this->price = 0;
+        return temp;
+    }
+
 }
+

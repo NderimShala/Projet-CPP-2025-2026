@@ -12,8 +12,8 @@ void Essai4();
 void Essai5();
 void Essai6();
 void Essai7();
-/*void Essai8();
-void Essai9();*/
+void Essai8();
+void Essai9();
 
 int main(int argc,char* argv[])
 {
@@ -33,8 +33,8 @@ int main(int argc,char* argv[])
       case 5 : Essai5(); break;
       case 6 : Essai6(); break;
       case 7 : Essai7(); break;
-      /*case 8 : Essai8(); break;
-      case 9 : Essai9(); break;*/
+      case 8 : Essai8(); break;
+      case 9 : Essai9(); break;
       default : fini = true ; break;
     }
   }
@@ -231,7 +231,7 @@ void Essai7()
 /*******************************************************************************************************/
 /*** Tests des operateurs de pre/post decrementation de la classe Option *******************************/
 /*******************************************************************************************************/
-/*
+
 void Essai8()
 {
   std::cout << "**********************************************************************" << std::endl;
@@ -256,7 +256,7 @@ void Essai8()
 /*******************************************************************************************************/
 /*** Tests de l'opérateur [] de la classe Car **********************************************************/
 /*******************************************************************************************************/
-/*
+
 void Essai9()
 {
   std::cout << "**********************************************************************" << std::endl;
@@ -283,5 +283,5 @@ void Essai9()
     else std::cout << "---" << std::endl;
   }
 
-}*/
+}
 

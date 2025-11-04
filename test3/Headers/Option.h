@@ -33,6 +33,9 @@ namespace carconfig
 
             friend istream& operator>>(istream& s, Option& o);
             friend ostream& operator<<(ostream& s,const Option& o);
+
+            Option operator--();
+            Option operator--(int);
     };   
 }
 

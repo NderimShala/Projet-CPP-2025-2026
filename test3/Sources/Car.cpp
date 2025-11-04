@@ -203,4 +203,9 @@ namespace carconfig {
         c.display();
         return s;
     }
+
+    Option* Car::operator[](int i)
+    {
+        return this->option[i];
+    }
 } // end of carconfig
