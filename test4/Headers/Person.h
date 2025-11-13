@@ -26,6 +26,9 @@ class Person
 
         Person& operator=(const Person& p);
 
+        virtual string toString() const;
+        virtual string tuple() const;
+
         friend ostream& operator<<(ostream& s, const Person& p);
         friend istream& operator>>(istream& s, Person& p);
 

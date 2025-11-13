@@ -2,13 +2,13 @@
 using namespace std;
 
 #include "Person.h"
-/*#include "Client.h"
-#include "Employee.h"*/
+#include "Client.h"
+/*#include "Employee.h"*/
 
 int  Menu();
 void Essai1();
-/*void Essai2();
-void Essai3();
+void Essai2();
+/*void Essai3();
 void Essai4();
 void Essai5();
 void Essai6();*/
@@ -25,8 +25,8 @@ int main()
     switch(choix)
     {
       case 1 : Essai1(); break;
-      /*case 2 : Essai2(); break;
-      case 3 : Essai3(); break;
+      case 2 : Essai2(); break;
+      /*case 3 : Essai3(); break;
       case 4 : Essai4(); break;
       case 5 : Essai5(); break;
       case 6 : Essai6(); break;*/
@@ -101,7 +101,7 @@ void Essai1()
 // A FAIRE : la classe abstraite Actor qui h�rite de Person et qui poss�de un id (int)
 //           et les deux m�thodes virtuelles pures tuple() et toString()
 //           la classe Client qui herite de Actor, contenant en plus un numero de gsm (string)
-/*
+
 void Essai2()
 {
   cout << "----- 2.1 Test du constructeur par defaut ----------------------------------" << endl;
