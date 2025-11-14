@@ -19,7 +19,7 @@ Client::Client(const Client& c)
 }
 Client::~Client()
 {
-    delete this;
+    
 }
 
 void Client::setGsm(string num)

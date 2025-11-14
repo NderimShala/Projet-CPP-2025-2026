@@ -29,3 +29,14 @@ Actor& Actor::operator=(const Actor& a)
 
     return *this;
 }
+
+string Actor::toString() const
+{
+    string s = "Actor";
+    return s;
+}
+string Actor::tuple() const
+{
+    string s = "Actor";
+    return s;
+}

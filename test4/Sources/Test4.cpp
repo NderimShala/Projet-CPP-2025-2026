@@ -3,15 +3,15 @@ using namespace std;
 
 #include "Person.h"
 #include "Client.h"
-/*#include "Employee.h"*/
+#include "Employee.h"
 
 int  Menu();
 void Essai1();
 void Essai2();
-/*void Essai3();
+void Essai3();
 void Essai4();
 void Essai5();
-void Essai6();*/
+/*void Essai6();*/
 
 int main()
 {
@@ -26,10 +26,10 @@ int main()
     {
       case 1 : Essai1(); break;
       case 2 : Essai2(); break;
-      /*case 3 : Essai3(); break;
+      case 3 : Essai3(); break;
       case 4 : Essai4(); break;
       case 5 : Essai5(); break;
-      case 6 : Essai6(); break;*/
+      /*case 6 : Essai6(); break;*/
       default : fini = true ; break;
     }
   }
@@ -155,7 +155,7 @@ void Essai2()
 // A FAIRE : la classe Employee qui herite de Actor
 //           contenant en plus une fonction (string), un login (string) et un mot de passe (string)
 //           deux variables statiques constantes SELLER et ADMINISTRATIVE
-/*
+
 void Essai3()
 {
   cout << "----- 3.1 Test du constructeur par defaut ----------------------------------" << endl;
@@ -219,7 +219,7 @@ void Essai3()
 /******************************************************************************************/
 // A FAIRE : normalement rien dans vos classes...
 //           juste comprendre et tester le code ci-dessous
-/*
+
 void Essai4()
 {
   srand((unsigned)time(NULL));
@@ -264,7 +264,7 @@ void Essai4()
 /*********************************************************************************************/
 // A FAIRE : normalement rien dans vos classes...
 //           juste comprendre et tester le code ci-dessous
-/*
+
 void Essai5()
 {
   srand((unsigned)time(NULL));

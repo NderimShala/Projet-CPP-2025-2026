@@ -70,3 +70,18 @@ ostream& operator<<(ostream& s, const Person& p)
 
     return s;
 }
+
+string Person::toString() const 
+{
+    string s = "Default";
+
+    return s;
+}
+
+string Person::tuple() const 
+{
+    string s = "Default";
+
+    return s;
+}
+
