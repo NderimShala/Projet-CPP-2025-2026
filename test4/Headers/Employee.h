@@ -15,10 +15,14 @@ class Employee : public Actor
         string login;
         string *password;
         string role;
-
+        
     public:
+
+        const static string ADMINISTRATIVE;
+        const static string SELLER;
+
         Employee(); //
-        Employee(string nom, string prenom, int id, string log, string role);
+        Employee(string nom, string prenom, int id, string log, string r);
         Employee(const Employee& e);//
         ~Employee();
 
@@ -36,6 +40,10 @@ class Employee : public Actor
         string tuple() const override;//
 
         Employee& operator=(const Employee& e);
+
+        friend ostream& operator<<(ostream& s, const Employee& p);
+        friend istream& operator>>(istream& s, Employee& p);
+
 
 
 };

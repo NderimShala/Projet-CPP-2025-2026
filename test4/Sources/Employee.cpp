@@ -4,17 +4,16 @@ Employee::Employee(): Actor()
 {
     setLogin("Default");
     resetPassword();
-    setRole("Default");
 
 }
 
-Employee::Employee(string nom, string prenom, int id, string log, string role)
+Employee::Employee(string nom, string prenom, int id, string log, string r)
 {
     setLastName(nom);
     setFirstName(prenom);
     setId(id);
     setLogin(login);
-    setRole(role);
+    setRole(r);
     resetPassword();
 }
 
@@ -24,8 +23,9 @@ Employee::Employee(const Employee& e)
     setFirstName(e.getFirstName());
     setId(e.getId());
     setLogin(e.getLogin());
-    setPassword(e.getPassword());
     setRole(e.getRole());
+    setPassword(e.getPassword());
+
 }
 
 Employee::~Employee()
@@ -59,28 +59,19 @@ void Employee::resetPassword()
     password = nullptr;
 }
 
-void Employee::setRole(string r)
-{
-    role = r;
-}
-
-string Employee::getRole() const
-{
-    return role;
-}
 
 string Employee::toString() const
 {
     string s = "Merde";
-    if(getRole() == "Vendeur") s = "[v" + to_string(id) + "]" + " " + getLastName() + getFirstName();
-    else if(getRole() == "Administratif") s = "[a" + to_string(id) + "]" + " " + getLastName() + getFirstName();
+    if(getRole() == "Vendeur") s = "[v" + to_string(getId()) + "]" + " " + getLastName() + " " + getFirstName();
+    else if(getRole() == "Administratif") s = "[a" + to_string(getId()) + "]" + " " + getLastName() + " "  +getFirstName();
 
     return s;
 }
 
 string Employee::tuple() const
 {
-    string s = getId()+";"+getLastName()+";"+getFirstName()+":"+getRole();
+    string s = to_string(getId())+";"+getLastName()+";"+getFirstName()+";"+getRole();
     return s;
 }
 
@@ -94,4 +85,25 @@ Employee& Employee::operator=(const Employee& e)
     setRole(e.getRole());
 
     return *this;
+}
+
+const string Employee::ADMINISTRATIVE = "Administratif";
+const string Employee::SELLER = "Vendeur";
+
+void Employee::setRole(string r)
+{
+    if(r == Employee::ADMINISTRATIVE) role = Employee::ADMINISTRATIVE;
+    if(r == Employee::SELLER) role = Employee::SELLER;
+}
+
+string Employee::getRole() const
+{
+    return role;
+}
+
+ostream& operator<<(ostream& s, const Employee& p)
+{
+    cout << p.getLastName() << endl << p.getFirstName() << endl << p.getRole();
+
+    return s;
 }

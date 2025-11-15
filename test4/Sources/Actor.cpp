@@ -3,6 +3,7 @@
 
 Actor::Actor() : Person()
 {
+    cout <<"appel du constructeur de Actor" << endl;
     setId(0);
 }
 
@@ -10,7 +11,7 @@ Actor::Actor() : Person()
 
 Actor::~Actor()
 {
-
+    cout <<"appel du destructeur de Actor" << endl;
 }
 
 int Actor::getId() const

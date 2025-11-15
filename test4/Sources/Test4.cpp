@@ -11,7 +11,7 @@ void Essai2();
 void Essai3();
 void Essai4();
 void Essai5();
-/*void Essai6();*/
+void Essai6();
 
 int main()
 {
@@ -29,7 +29,7 @@ int main()
       case 3 : Essai3(); break;
       case 4 : Essai4(); break;
       case 5 : Essai5(); break;
-      /*case 6 : Essai6(); break;*/
+      case 6 : Essai6(); break;
       default : fini = true ; break;
     }
   }
@@ -314,7 +314,7 @@ void Essai5()
 
 /******************************************************************************************/
 // A FAIRE : Les deux variables statiques ADMINISTRATIVE et SELLER (const string) de la classe Employee
-/*
+
 void Essai6()
 {
   cout << "Les deux fonctions possibles pour un Employee sont :" << endl;
@@ -326,4 +326,4 @@ void Essai6()
   e.setRole(Employee::SELLER);
   cout << e << endl;
 }
-*/
+
