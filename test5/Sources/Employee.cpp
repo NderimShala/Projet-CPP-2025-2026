@@ -1,4 +1,5 @@
 #include "Employee.h"
+#include "PasswordException.h"
 
 Employee::Employee(): Actor()
 {
@@ -41,6 +42,18 @@ void Employee::setLogin(string l)
 void Employee::setPassword(string mdp)
 {
     if (password != nullptr) delete password;
+    if(mdp.length()<6) throw PasswordException(1);
+    int testd = 0;
+    int testa = 0;
+    for(char c : mdp)
+    {
+        if(isalpha(c) == 1) testa = 1;
+        if(isdigit(c) == 1) testd = 1;
+    }
+    if (testa == 0) throw PasswordException(2);
+    if (testd == 0) throw PasswordException(3);
+
+    
     password = new string(mdp);
 }
 
@@ -51,6 +64,7 @@ string Employee::getLogin() const
 
 const string Employee::getPassword() const
 {
+    if(password == nullptr) throw PasswordException(4);
     return *password;
 }
 

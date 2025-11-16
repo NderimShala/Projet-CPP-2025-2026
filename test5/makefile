@@ -3,9 +3,9 @@ HEADERS=./Headers/
 OBJETS=./Objets/
 SOURCES=./Sources/
 
-Test5 : $(SOURCES)Test5.cpp $(OBJETS)Person.o $(OBJETS)Client.o $(OBJETS)Actor.o $(OBJETS)Employee.o $(OBJETS)Car.o $(OBJETS)Model.o $(OBJETS)Option.o $(OBJETS)OptionException.o $(OBJETS)Exception.o
+Test5 : $(SOURCES)Test5.cpp $(OBJETS)Person.o $(OBJETS)Client.o $(OBJETS)Actor.o $(OBJETS)Employee.o $(OBJETS)Car.o $(OBJETS)Model.o $(OBJETS)Option.o $(OBJETS)OptionException.o $(OBJETS)Exception.o $(OBJETS)PasswordException.o
 	echo Création de Test5
-	g++ $(SOURCES)Test5.cpp -I $(HEADERS) $(OBJETS)Person.o $(OBJETS)Client.o $(OBJETS)Actor.o $(OBJETS)Employee.o $(OBJETS)Car.o $(OBJETS)Model.o $(OBJETS)Option.o $(OBJETS)OptionException.o $(OBJETS)Exception.o -o Test5
+	g++ $(SOURCES)Test5.cpp -I $(HEADERS) $(OBJETS)Person.o $(OBJETS)Client.o $(OBJETS)Actor.o $(OBJETS)Employee.o $(OBJETS)Car.o $(OBJETS)Model.o $(OBJETS)Option.o $(OBJETS)OptionException.o $(OBJETS)Exception.o $(OBJETS)PasswordException.o -o Test5
 
 $(OBJETS)Person.o : $(HEADERS)Person.h $(SOURCES)Person.cpp
 	echo Création de Person.o
@@ -42,3 +42,7 @@ $(OBJETS)OptionException.o : $(SOURCES)OptionException.cpp $(HEADERS)OptionExcep
 $(OBJETS)Exception.o : $(SOURCES)Exception.cpp $(HEADERS)Exception.h
 	echo Création de Exception.o
 	g++ -c $(SOURCES)Exception.cpp -I $(HEADERS) -o $(OBJETS)Exception.o
+
+$(OBJETS)PasswordException.o : $(SOURCES)PasswordException.cpp $(HEADERS)PasswordException.h
+	echo Création de PasswordException.o
+	g++ -c $(SOURCES)PasswordException.cpp -I $(HEADERS) -o $(OBJETS)PasswordException.o

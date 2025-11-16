@@ -109,12 +109,16 @@ namespace carconfig {
 
     void Car::addOption(const Option& option)
     {  
+        for(int i= 0; i<getnumOption(); i++)
+        {
+            if(this->option[i]->getCode() == option.getCode()) throw OptionException("option déjà présente");
+        }
         if(getnumOption() < 5)
         {
             this->option[getnumOption()] = new Option(option);
             setnumOption(getnumOption()+1);
         }
-        else cout << "nombre d'option max" << endl;
+        else throw OptionException("nombre d'option max");
     }
 
     void Car::removeOption(const string code)
@@ -132,6 +136,7 @@ namespace carconfig {
                 cout << "Option " << code << " supprimée" << endl;
                 return;
             }
+            throw OptionException("l'option à supprimer n'est pas présente");
         }
         cout << "Option " << code << " non trouvée" << endl;
     }

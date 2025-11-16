@@ -6,6 +6,7 @@
 
 #include "Model.h"
 #include "Option.h"
+#include "OptionException.h"
 
 using namespace std;
 
