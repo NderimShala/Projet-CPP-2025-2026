@@ -21,7 +21,7 @@ int  Menu();
 void Essai1();
 void Essai2();
 void Essai3();
-/*void Essai4();*/
+void Essai4();
 
 int main()
 {
@@ -37,7 +37,7 @@ int main()
       case 1 : Essai1(); break;
       case 2 : Essai2(); break;
       case 3 : Essai3(); break;
-      /*case 4 : Essai4(); break;*/
+      case 4 : Essai4(); break;
       default : fini = true ; break;
     }
   }
@@ -217,17 +217,18 @@ void Essai3()
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai4()
 {
   cout << "----- 4. Gestion de plusieurs exceptions simultanement ---" << endl;
   // A COMPLETER : Traitez TOUTES les exceptions susceptible d'etre lancee par le bloc de code suivant (try...catch)
 
-  // ...
+  try
   {
     Option o;
     cout << "Encodez une option : " << endl;
     cin >> o;
+    cin.ignore(); //j'ai rajouté cette ligne car problème de buffer
     cout << "Voici l'option encodee : " << o << endl << endl;
     Employee e1("Dupont","Michel",2,"dupomich",Employee::ADMINISTRATIVE);
     cout << e1 << endl;
@@ -238,8 +239,20 @@ void Essai4()
     cout << "Affichage du mot de passe :" << endl;
     cout << "Mot de passe = " << e1.getPassword() << endl;
   }
-  // ...
+  catch(PasswordException p)
+  {
+    if(p.getPassCode() == 1) cout << "INVALID_LENGTH (mdp < 6)" << endl;
+    else if(p.getPassCode() == 2) cout << "ALPHA_MISSING (pas de lettre dans le mdp)" << endl; 
+    else if(p.getPassCode() == 3) cout << "DIGIT_MISSING (pas de chiffre dans le mdp)" << endl;
+    else if(p.getPassCode() == 4) cout << "NO_PASSWORD (ne possède pas encore de mdp" << endl;
+  }
+  catch(OptionException e)
+  {
+    cout << "Erreur :" << e.getMessage() << endl;
+  }
+  
+  
+  
   
   cout << endl;
 }
-*/

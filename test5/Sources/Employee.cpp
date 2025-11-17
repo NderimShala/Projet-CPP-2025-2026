@@ -1,24 +1,22 @@
 #include "Employee.h"
 #include "PasswordException.h"
 
-Employee::Employee(): Actor()
+Employee::Employee(): Actor(), password(nullptr)
 {
     setLogin("Default");
-    resetPassword();
 
 }
 
-Employee::Employee(string nom, string prenom, int id, string log, string r)
+Employee::Employee(string nom, string prenom, int id, string log, string r) : password(nullptr)
 {
     setLastName(nom);
     setFirstName(prenom);
     setId(id);
-    setLogin(login);
+    setLogin(log);
     setRole(r);
-    resetPassword();
 }
 
-Employee::Employee(const Employee& e)
+Employee::Employee(const Employee& e) : password(nullptr)
 {
     setLastName(e.getLastName());
     setFirstName(e.getFirstName());
@@ -41,17 +39,17 @@ void Employee::setLogin(string l)
 
 void Employee::setPassword(string mdp)
 {
-    if (password != nullptr) delete password;
+    
     if(mdp.length()<6) throw PasswordException(1);
-    int testd = 0;
+    int testb = 0;
     int testa = 0;
     for(char c : mdp)
     {
-        if(isalpha(c) == 1) testa = 1;
-        if(isdigit(c) == 1) testd = 1;
+        if(isalpha(c)) testa = 1;
+        if(isdigit(c)) testb = 1;
     }
     if (testa == 0) throw PasswordException(2);
-    if (testd == 0) throw PasswordException(3);
+    if (testb == 0) throw PasswordException(3);
 
     
     password = new string(mdp);
