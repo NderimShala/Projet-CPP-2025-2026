@@ -56,3 +56,48 @@ Client& Client::operator=(const Client& c)
 
     return *this;
 }
+
+ostream& operator<<(ostream& s, const Client& c)
+{
+    s << "<Client>" << endl;
+    s << "<lastName>" << endl;
+    s << c.getLastName() << endl;
+    s << "</lastName>" << endl;
+    s << "<firstName>" << endl;
+    s << c.getFirstName() << endl;
+    s << "</firstName>" << endl;
+    s << "<id>" << endl;
+    s << c.getId() << endl;
+    s << "</id>" << endl;
+    s << "<gsm>" << endl;
+    s << c.getGsm() << endl;
+    s << "</gsm>" << endl;
+    s << "</Client>" << endl;
+     return s;
+}
+
+istream& operator>>(istream& s, Client& c)
+{
+    string lastNameTmp, firstNameTmp, idTmp, GSMTmp, tag;
+    getline(s, tag);
+    getline(s, tag);
+    getline(s, lastNameTmp);
+    getline(s, tag);
+    getline(s, tag);
+    getline(s, firstNameTmp);
+    getline(s, tag);
+    getline(s, tag);
+    getline(s, idTmp);
+    getline(s, tag);
+    getline(s, tag);
+    getline(s, GSMTmp);
+    getline(s, tag);
+    getline(s, tag);
+
+    c.setFirstName(firstNameTmp);
+    c.setLastName(lastNameTmp);
+    c.setId(stoi(idTmp));
+    c.setGsm(GSMTmp);
+
+    return s;
+}

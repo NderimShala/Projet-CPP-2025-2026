@@ -12,7 +12,7 @@ int  Menu();
 void Essai1();
 void Essai2();
 void Essai3();
-/*void Essai4();*/
+void Essai4();
 
 int main(int argc,char* argv[])
 {
@@ -28,7 +28,7 @@ int main(int argc,char* argv[])
       case 1 : Essai1(); break;
       case 2 : Essai2(); break;
       case 3 : Essai3(); break;
-      /*case 4 : Essai4(); break;*/
+      case 4 : Essai4(); break;
       default : fini = true ; break;
     }
   }
@@ -137,7 +137,7 @@ void Essai3()  // Attention : utilisez les flux texte (<< et >>) !!!!
 }
 
 /*********************************************************************************************/
-/*
+
 void Essai4()  // Attention : utilisez les flux texte (<< et >>) !!!!
 {
   cout << "----- 4. Sérialisation/Désérialisation d'un objet de la classe Client ------" << endl;
@@ -160,4 +160,4 @@ void Essai4()  // Attention : utilisez les flux texte (<< et >>) !!!!
   fichier2.close();
   cout << "Après sérialisation : " << c2.toString() << endl;
 }
-*/
+

@@ -7,7 +7,7 @@ Employee::Employee(): Actor()
 
 }
 
-Employee::Employee(string nom, string prenom, int id, string log, string r)
+Employee::Employee(string nom, string prenom, int id, string log, string r) //: Actor(id,nom,prenom)
 {
     setLastName(nom);
     setFirstName(prenom);

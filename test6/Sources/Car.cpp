@@ -212,22 +212,58 @@ namespace carconfig {
         s << "<model>" << endl;
         s << c.getModel() << endl;
         s << "</model>" << endl;
-        s << "<option>" << endl;
+        s << "<options>" << endl;
         //A FAIRE
-        string ligne;
-        while(getline(f, ligne) == "</options>")
+        int i = 0;
+        while(c.option[i] != nullptr)
         {
-
+            s << *c.option[i] << endl;
+            i++;
         }
-        s << "</option>" << endl;
+        s << "</options>" << endl;
         s << "</Car>" << endl;
         return s;
     }
 
-    istream& operator>>(istream& s, const Car& c)
+    istream& operator>>(istream& s, Car& c)
     {
+        string NameTmp, numptmp, tag, ligne;
+        getline(s, tag);
+        getline(s, tag);
+        getline(s, NameTmp);
+        getline(s, tag);
+        getline(s, tag);
+        s >> c.model;
+        getline(s, tag);
+        getline(s, tag);
+        int i = 0;
+        while(i < 5)
+        {
+            streampos pos = s.tellg();
+            if(!getline(s, ligne)) break;
+            if(ligne == "</options>")
+            {
+                cout << "il n'y a plus d'option </options>" << endl;
+                break;
+            }
+            if(ligne == "<Option>")
+            {
+                s.seekg(pos);
+                Option tmp;
+                s >> tmp;
+                c.addOption(tmp);
+                i++;
+            }
+            
+        }
+        getline(s, tag);
+
+        c.setName(NameTmp);
+        
+        return s;
 
     }
+
 
     Option* Car::operator[](int i)
     {

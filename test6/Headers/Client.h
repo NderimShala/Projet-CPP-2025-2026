@@ -27,6 +27,9 @@ class Client : public Actor
         string tuple() const override;
 
         Client& operator=(const Client& c);
+
+        friend ostream& operator<<(ostream& s, const Client& c);
+        friend istream& operator>>(istream& s, Client& c);
 };
 
 #endif
