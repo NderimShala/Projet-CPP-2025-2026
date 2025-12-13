@@ -1,5 +1,6 @@
 #include "Actor.h"
 
+int Actor::currentId = 1;
 
 Actor::Actor() : Person()
 {

@@ -24,6 +24,8 @@ class Actor : public Person
         virtual string tuple() const;
 
         Actor& operator=(const Actor& a);
+
+        static int currentId;
 };
 
 #endif

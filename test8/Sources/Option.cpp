@@ -80,6 +80,12 @@ namespace carconfig
         cout << "code : " << code << endl << "label : " << label << endl << "prix : " << price << endl;
     }
 
+    string Option::toString() const
+    {
+        string s = "code : " + getCode() + " labele : " + getLabel() + " prix : " + to_string(getPrice());
+        return s;
+    }
+
     istream& operator>>(istream& s, Option& o)
     {
         string tmpc, tmpl, tmpp, tag;

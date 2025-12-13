@@ -50,6 +50,11 @@ Person& Person::operator=(const Person& p)
     return *this;
 }
 
+bool Person::operator<(const Person& p) const
+{
+    return getLastName() < p.getLastName();
+}
+
 istream& operator>>(istream& s, Person& p)
 {
     string fn, ln;

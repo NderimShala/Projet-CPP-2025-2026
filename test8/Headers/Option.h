@@ -32,6 +32,7 @@ namespace carconfig
             float getPrice() const;
 
             void display() const;
+            string toString() const;
 
             friend istream& operator>>(istream& s, Option& o);
             friend ostream& operator<<(ostream& s,const Option& o);

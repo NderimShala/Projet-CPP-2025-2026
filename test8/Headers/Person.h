@@ -25,6 +25,7 @@ class Person
         string getLastName() const;
 
         Person& operator=(const Person& p);
+        bool operator<(const Person& p) const;
 
         virtual string toString() const;
         virtual string tuple() const;
