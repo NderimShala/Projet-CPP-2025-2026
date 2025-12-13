@@ -8,7 +8,7 @@ using namespace std;
 int  Menu();
 void Essai1();
 void Essai2();
-/*void Essai3();*/
+void Essai3();
 
 int main(int argc,char* argv[])
 {
@@ -23,7 +23,7 @@ int main(int argc,char* argv[])
     {
       case 1 : Essai1(); break;
       case 2 : Essai2(); break;
-      /*case 3 : Essai3(); break;*/
+      case 3 : Essai3(); break;
       default : fini = true ; break;
     }
   }
@@ -137,7 +137,7 @@ void Essai2()
 }
 
 /*******************************************************************************************************/
-/*
+
 void Essai3()
 {
   cout << "----- 3. Test du template XmlFileSerializer avec des objets Client --------------------------" << endl;
@@ -187,4 +187,3 @@ void Essai3()
     delete fsr;
   }
 }
-*/
