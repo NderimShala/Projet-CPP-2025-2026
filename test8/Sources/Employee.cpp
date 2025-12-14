@@ -4,7 +4,6 @@
 Employee::Employee(): Actor(), password(nullptr)
 {
     setLogin("Default");
-
 }
 
 Employee::Employee(string nom, string prenom, int id, string log, string r) : password(nullptr)
@@ -23,8 +22,13 @@ Employee::Employee(const Employee& e) : password(nullptr)
     setId(e.getId());
     setLogin(e.getLogin());
     setRole(e.getRole());
-    setPassword(e.getPassword());
-
+    // Copier le password seulement s'il existe dans 'e'
+    if (e.password != nullptr) {
+        // Utilise setPassword pour la validation et l'allocation correcte
+        setPassword(*e.password);
+    } else {
+        password = nullptr;
+    }
 }
 
 Employee::~Employee()
@@ -39,19 +43,24 @@ void Employee::setLogin(string l)
 
 void Employee::setPassword(string mdp)
 {
-    
+    // Validation
     if(mdp.length()<6) throw PasswordException(1);
     int testb = 0;
     int testa = 0;
     for(char c : mdp)
     {
-        if(isalpha(c)) testa = 1;
-        if(isdigit(c)) testb = 1;
+        if(isalpha(static_cast<unsigned char>(c))) testa = 1;
+        if(isdigit(static_cast<unsigned char>(c))) testb = 1;
     }
     if (testa == 0) throw PasswordException(2);
     if (testb == 0) throw PasswordException(3);
 
-    
+    // Supprimer l'ancien mot de passe s'il existe pour éviter les fuites
+    if (password != nullptr) {
+        delete password;
+        password = nullptr;
+    }
+
     password = new string(mdp);
 }
 
@@ -68,9 +77,12 @@ const string Employee::getPassword() const
 
 void Employee::resetPassword()
 {
+    // Supprimer la mémoire et mettre à nullptr
+    if (password != nullptr) {
+        delete password;
+    }
     password = nullptr;
 }
-
 
 string Employee::toString() const
 {
@@ -89,12 +101,20 @@ string Employee::tuple() const
 
 Employee& Employee::operator=(const Employee& e)
 {
+    if (this == &e) return *this;
+
     setLastName(e.getLastName());
     setFirstName(e.getFirstName());
     setId(e.getId());
     setLogin(e.getLogin());
-    setPassword(e.getPassword());
     setRole(e.getRole());
+
+    // Copier le password seulement s'il existe ; sinon réinitialiser
+    if (e.password != nullptr) {
+        setPassword(*e.password);
+    } else {
+        resetPassword();
+    }
 
     return *this;
 }
@@ -116,6 +136,5 @@ string Employee::getRole() const
 ostream& operator<<(ostream& s, const Employee& p)
 {
     cout << p.getLastName() << endl << p.getFirstName() << endl << p.getRole();
-
     return s;
 }

@@ -10,7 +10,7 @@ void Garage::displayAllModels() const
 {
     for(list<Model>::const_iterator it = models.begin(); it != models.end(); it++)
     {
-        it->toString();
+        cout << it->toString() << endl;
     }
 }
 
@@ -31,7 +31,7 @@ void Garage::displayAllOptions() const
 {
     for(list<Option>::const_iterator it = options.begin(); it != options.end(); it++)
     {
-        it->toString();
+        cout << it->toString() << endl;
     }
 }
 
@@ -55,14 +55,13 @@ void Garage::displayClients() const
 {
     for(set<Client>::const_iterator it = clients.cbegin(); it != clients.cend(); it++)
     {
-        it->toString();
+        cout << it->toString() << endl;
     }
 }
 
 void Garage::deleteClientByIndex(int index)
 {
-    set<Client>::iterator it = clients.begin();
-    advance(it, index);
+    set<Client>::iterator it = next(clients.begin(), index);
     clients.erase(it);
 }
 
@@ -106,14 +105,13 @@ void Garage::displayEmployees() const
 {
     for(auto it = employees.begin(); it != employees.end(); it++)
     {
-        it->toString();
+        cout << it->toString() << endl;
     }
 }
 
 void Garage::deleteEmployeeByIndex(int index)
 {
-    auto it = employees.begin();
-    advance(it, index);
+    auto it = next(employees.begin(), index);
     employees.erase(it);
 }
 
@@ -121,7 +119,11 @@ void Garage::deleteEmployeeById(int id)
 {
     for(auto it = employees.begin(); it != employees.end(); it++)
     {
-        if(it->getId() == id) employees.erase(it);
+        if(it->getId() == id) 
+        {
+            employees.erase(it); 
+            break;
+        }
     }
 }
 
