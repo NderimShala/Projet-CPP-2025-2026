@@ -1,0 +1,192 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Headers/Actor.h
+cstring
+-
+iostream
+-
+Person.h
+../Headers/Person.h
+
+../Headers/Car.h
+cstring
+-
+iostream
+-
+Model.h
+../Headers/Model.h
+Option.h
+../Headers/Option.h
+OptionException.h
+../Headers/OptionException.h
+
+../Headers/Client.h
+cstring
+-
+string
+-
+iostream
+-
+Actor.h
+../Headers/Actor.h
+
+../Headers/Employee.h
+cstring
+-
+iostream
+-
+Actor.h
+../Headers/Actor.h
+
+../Headers/Exception.h
+cstring
+-
+iostream
+-
+
+../Headers/Garage.h
+iostream
+-
+set
+-
+list
+-
+Client.h
+../Headers/Client.h
+Employee.h
+../Headers/Employee.h
+Model.h
+../Headers/Model.h
+Option.h
+../Headers/Option.h
+Car.h
+../Headers/Car.h
+
+../Headers/Model.h
+cstring
+-
+iostream
+-
+
+../Headers/Option.h
+cstring
+-
+iostream
+-
+OptionException.h
+../Headers/OptionException.h
+
+../Headers/OptionException.h
+cstring
+-
+iostream
+-
+Exception.h
+../Headers/Exception.h
+
+../Headers/PasswordException.h
+cstring
+-
+iostream
+-
+Exception.h
+../Headers/Exception.h
+
+../Headers/Person.h
+cstring
+-
+iostream
+-
+
+/home/student/Bureau/Projet C++/test8b/Headers/Exception.h
+cstring
+-
+iostream
+-
+
+/home/student/Bureau/Projet C++/test8b/Headers/Option.h
+cstring
+-
+iostream
+-
+OptionException.h
+/home/student/Bureau/Projet C++/test8b/Headers/OptionException.h
+
+/home/student/Bureau/Projet C++/test8b/Headers/OptionException.h
+cstring
+-
+iostream
+-
+Exception.h
+/home/student/Bureau/Projet C++/test8b/Headers/Exception.h
+
+/home/student/Bureau/Projet C++/test8b/Headers/XmlFileSerializerException.h
+cstring
+-
+iostream
+-
+Exception.h
+/home/student/Bureau/Projet C++/test8b/Headers/Exception.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Actor.cpp
+Actor.h
+/home/student/Bureau/Projet C++/test8b/Sources/Actor.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Car.cpp
+Car.h
+/home/student/Bureau/Projet C++/test8b/Sources/Car.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Client.cpp
+Client.h
+/home/student/Bureau/Projet C++/test8b/Sources/Client.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Employee.cpp
+Employee.h
+/home/student/Bureau/Projet C++/test8b/Sources/Employee.h
+PasswordException.h
+/home/student/Bureau/Projet C++/test8b/Sources/PasswordException.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Exception.cpp
+Exception.h
+/home/student/Bureau/Projet C++/test8b/Sources/Exception.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Garage.cpp
+Garage.h
+/home/student/Bureau/Projet C++/test8b/Sources/Garage.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Model.cpp
+Model.h
+/home/student/Bureau/Projet C++/test8b/Sources/Model.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Option.cpp
+../Headers/Option.h
+/home/student/Bureau/Projet C++/test8b/Headers/Option.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/OptionException.cpp
+OptionException.h
+/home/student/Bureau/Projet C++/test8b/Sources/OptionException.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/PasswordException.cpp
+PasswordException.h
+/home/student/Bureau/Projet C++/test8b/Sources/PasswordException.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Person.cpp
+Person.h
+/home/student/Bureau/Projet C++/test8b/Sources/Person.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/Test8b.cpp
+iostream
+-
+Garage.h
+/home/student/Bureau/Projet C++/test8b/Sources/Garage.h
+
+/home/student/Bureau/Projet C++/test8b/Sources/XmlFileSerializerException.cpp
+../Headers/XmlFileSerializerException.h
+/home/student/Bureau/Projet C++/test8b/Headers/XmlFileSerializerException.h
+

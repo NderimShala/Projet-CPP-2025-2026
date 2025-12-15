@@ -1,0 +1,3 @@
+/home/student/Bureau/Projet C++/test8b/build/CMakeFiles/rebuild_cache.dir
+/home/student/Bureau/Projet C++/test8b/build/CMakeFiles/Test8b.dir
+/home/student/Bureau/Projet C++/test8b/build/CMakeFiles/edit_cache.dir
