@@ -1,5 +1,9 @@
 #include "Garage.h"
 
+// Définition des membres statiques (obligatoire pour l'éditeur de liens)//
+Garage Garage::instance{};               // l'unique instance de Garage
+carconfig::Car Garage::currentProject{}; // projet courant, constructeur par défaut
+
 
 void Garage::addModel(const Model& m)
 {
@@ -143,18 +147,19 @@ Employee Garage::findEmployeeById(int id) const
     throw std::runtime_error("Client introuvable");
 }
 
-Garage& Garage::getInstance() const
+Garage& Garage::getInstance()
 {
+    static Garage instance;
     return instance;
 }
 
 Car& Garage::getCurrentProject()
 {
-    return currentProject;
+    return getInstance().currentProject;
 }
 
 void Garage::resetCurrentProject()
 {
-    currentProject.~Car();
+    getInstance().currentProject = Car();
 }
-    
+

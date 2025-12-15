@@ -22,6 +22,8 @@ class Garage
         static Garage instance;
         static Car currentProject; /////
 
+        
+
     public:
         
         Garage(const Garage& g) = delete;
@@ -51,8 +53,9 @@ class Garage
 
         Garage& operator=(const Garage& g) = delete;
 
-        Garage& getInstance() const; /////
-        Car& getCurrentProject();
-        void resetCurrentProject();
+        static Garage& getInstance(); /////
+        static Car& getCurrentProject();
+        static void resetCurrentProject();
+
 };   
 
