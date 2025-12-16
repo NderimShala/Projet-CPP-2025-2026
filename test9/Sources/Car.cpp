@@ -269,4 +269,32 @@ namespace carconfig {
     {
         return this->option[i];
     }
+
+    void Car::save()
+    {
+        string nom = getName() + ".xml";
+        cout << nom;
+        ofstream fichier(nom, ios::out);
+        if (!fichier)
+        {
+            cerr << "Erreur : impossible de créer le fichier " << nom << endl;
+            return;
+        }
+        fichier << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+        fichier << *this;
+    }
+
+    void Car::load(string projectName)
+    {
+        projectName = projectName + ".xml";
+        string tag;
+        ifstream fichier(projectName, ios::in);
+        if(!fichier.is_open())
+        {
+            cerr << "Erreur : impossible d'ouvrir le fichier " << projectName << endl;
+            return;
+        }
+        getline(fichier, tag);
+        fichier >> *this;
+    }
 } // end of carconfig

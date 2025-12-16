@@ -6,7 +6,7 @@
 #include <iostream>
 #include "unistd.h"
 
-#define IMAGES_DIR "../../images/"
+#define IMAGES_DIR "../images/"
 
 ApplicGarageWindow::ApplicGarageWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::ApplicGarageWindow)
 {
@@ -648,6 +648,7 @@ void ApplicGarageWindow::on_actionNewModel_triggered()
 
 
     Model M(modelName.c_str(), power, static_cast<Engine>(engine), basePrice, image); // static_cast<Engine>(engine) dit au compilateur de concidérer int engine comme un Engine engine
+    
     Garage::getInstance().addModel(M);
     addAvailableModel(M.getName(), M.getBasePrice());
 
@@ -772,6 +773,7 @@ void ApplicGarageWindow::on_pushButtonSelectModel_clicked()
         Car& projet = Garage::getCurrentProject();
         Model m = Garage::getInstance().getModel(index);
         projet.setModel(m);
+
         setModel(m.getName(), m.getPower(), m.getEngine(), m.getBasePrice(), m.getImage());
 
         setPrice(projet.getPrice());
@@ -783,6 +785,27 @@ void ApplicGarageWindow::on_pushButtonAddOption_clicked()
 {
     // TO DO (étape 9)
     cout << ">>> Clic sur bouton AddOption <<<" << endl;
+    try
+    {
+        int index = getIndexOptionSelectionCombobox();
+        if(index == -1) dialogError("Erreur", "Aucune option sélectionnée"); 
+        else
+        {
+            Car& projet = Garage::getCurrentProject();
+            Option o = Garage::getInstance().getOption(index);
+            projet.addOption(o);
+
+            setTableOption(index, o.getCode(), o.getLabel(), o.getPrice());
+
+            setPrice(projet.getPrice());
+        }
+                
+    }
+    catch(OptionException e)
+    {
+        dialogError("Erreur", e.getMessage().c_str());
+    }
+    
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -790,6 +813,21 @@ void ApplicGarageWindow::on_pushButtonRemoveOption_clicked()
 {
     // TO DO (étape 9)
     cout << ">>> Clic sur bouton RemoveOption <<<" << endl;
+
+    int index = getIndexOptionSelectionTable();
+    if(index == -1) dialogError("Erreur", "Aucune option sélectionnée");
+    else
+    {
+        Car& projet = Garage::getCurrentProject();
+        Option* o = projet[index];
+        projet.removeOption(o->getCode());
+
+        setTableOption(index, "","", -1.0);
+
+        setPrice(projet.getPrice());  
+    }
+    
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -797,6 +835,27 @@ void ApplicGarageWindow::on_pushButtonReduction_clicked()
 {
     // TO DO (étape 9)
     cout << ">>> Clic sur bouton Reduction <<<" << endl;
+
+    try
+    {
+        int index = getIndexOptionSelectionTable();
+        if(index == -1) dialogError("Erreur", "Aucune option sélectionnée");
+        else
+        {
+            Car& projet = Garage::getCurrentProject();
+            Option* o = projet[index];
+            (*o)--; //déférencer le pointeur
+
+            setTableOption(index, o->getCode(), o->getLabel(), o->getPrice());
+
+            setPrice(projet.getPrice());
+        }
+    }
+    catch(OptionException e)
+    {
+        dialogError("Erreur", e.getMessage().c_str());
+    }
+    
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -804,6 +863,17 @@ void ApplicGarageWindow::on_pushButtonSaveProject_clicked()
 {
     // TO DO (étape 9)
     cout << ">>> Clic sur bouton SaveProject <<<" << endl;
+
+    string nom = getCurrentProjectName();
+    if(nom.empty()) 
+    {
+        nom = dialogPromptText("Enregistrer projet", "Nom du projet : ");
+        if(nom.empty()) dialogError("Erreur", "Il faut un nom de projet");
+    }
+    setCurrentProjectName(nom);
+    Car& projet = Garage::getCurrentProject();
+    projet.setName(nom);
+    projet.save();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -811,8 +881,27 @@ void ApplicGarageWindow::on_pushButtonOpenProject_clicked()
 {
     // TO DO (étape 9)
     cout << ">>> Clic sur bouton OpenProject <<<" << endl;
-}
 
+    string nom = getCurrentProjectName();
+    if(nom.empty()) dialogError("Erreur", "Aucun nom de projet");
+    setCurrentProjectName(nom);
+    Car& projet = Garage::getCurrentProject();
+    projet.load(nom);
+
+    setModel(projet.getModel().getName(), projet.getModel().getPower(), projet.getModel().getEngine(), 
+                projet.getModel().getBasePrice(), projet.getModel().getImage());
+    
+    for(int i = 0; i<5; i++)
+    {
+        Option* o = projet[i]; //utilisation de la surcharge de l'operateur [] de la classe Car qui renvoie un pointeur vers l'option d'indice i
+        cout << "Indice " << i << " : pointeur = " << o << endl;
+        if(o == nullptr) setTableOption(i, "", "", -1.0); //vider les cases sans option
+        else setTableOption(i, o->getCode(), o->getLabel(), o->getPrice());
+    }
+
+    setPrice(projet.getPrice());
+
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ApplicGarageWindow::on_pushButtonNewProject_clicked()
 {

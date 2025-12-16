@@ -3,6 +3,7 @@
 
 #include <cstring>
 #include <iostream>
+#include <fstream>
 
 #include "Model.h"
 #include "Option.h"
@@ -57,6 +58,8 @@ namespace carconfig
 
             Option* operator[](int i);
 
+            void save();
+            void load(string projectName);
 
     };   
 }

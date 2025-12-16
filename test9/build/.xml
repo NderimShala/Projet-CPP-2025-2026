@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><Car>
+<name>
+
+</name>
+<model>
+<Model>
+<name>
+long
+</name>
+<power>
+150
+</power>
+<engine>
+1
+</engine>
+<basePrice>
+0
+</basePrice>
+<image>
+
+</image>
+</Model>
+
+</model>
+<options>
+</options>
+</Car>

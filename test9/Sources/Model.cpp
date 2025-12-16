@@ -119,6 +119,7 @@ namespace carconfig
 		getline(s, tag);
 		getline(s, tag);
 
+
 		o.setName(ntmp.c_str());
 		o.setPower(stoi(ptmp));
 		o.setBasePrice(stof(btmp));
