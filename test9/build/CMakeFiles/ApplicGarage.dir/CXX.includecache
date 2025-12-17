@@ -142,18 +142,6 @@ QtWidgets/QTableWidget
 QtWidgets/QWidget
 -
 
-/home/student/Bureau/Projet C++/test9/Sources/Car.cpp
-Car.h
-/home/student/Bureau/Projet C++/test9/Sources/Car.h
-
-/home/student/Bureau/Projet C++/test9/Sources/Garage.cpp
-Garage.h
-/home/student/Bureau/Projet C++/test9/Sources/Garage.h
-
-/home/student/Bureau/Projet C++/test9/Sources/Model.cpp
-Model.h
-/home/student/Bureau/Projet C++/test9/Sources/Model.h
-
 /home/student/Bureau/Projet C++/test9/Sources/applicgaragewindow.cpp
 applicgaragewindow.h
 /home/student/Bureau/Projet C++/test9/Sources/applicgaragewindow.h
@@ -169,42 +157,6 @@ iostream
 -
 unistd.h
 /home/student/Bureau/Projet C++/test9/Sources/unistd.h
-
-/home/student/Bureau/Projet C++/test9/Sources/main.cpp
-applicgaragewindow.h
-/home/student/Bureau/Projet C++/test9/Sources/applicgaragewindow.h
-QApplication
--
-QScreen
--
-
-/home/student/Bureau/Projet C++/test9/Sources/moc_applicgaragewindow.cpp
-applicgaragewindow.h
-/home/student/Bureau/Projet C++/test9/Sources/applicgaragewindow.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/usr/include/qt5/QtCore/QList
-qlist.h
-/usr/include/qt5/QtCore/qlist.h
-
-/usr/include/qt5/QtCore/QObject
-qobject.h
-/usr/include/qt5/QtCore/qobject.h
-
-/usr/include/qt5/QtCore/QRect
-qrect.h
-/usr/include/qt5/QtCore/qrect.h
-
-/usr/include/qt5/QtCore/QSize
-qsize.h
-/usr/include/qt5/QtCore/qsize.h
-
-/usr/include/qt5/QtCore/QSizeF
-qsize.h
-/usr/include/qt5/QtCore/qsize.h
 
 /usr/include/qt5/QtCore/QVariant
 qvariant.h
@@ -956,14 +908,6 @@ QtCore/qpoint.h
 QtCore/qglobal.h
 -
 
-/usr/include/qt5/QtGui/QScreen
-qscreen.h
-/usr/include/qt5/QtGui/qscreen.h
-
-/usr/include/qt5/QtGui/QTransform
-qtransform.h
-/usr/include/qt5/QtGui/qtransform.h
-
 /usr/include/qt5/QtGui/qbrush.h
 QtGui/qtguiglobal.h
 -
@@ -1240,24 +1184,6 @@ QtCore/qprocessordetection.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
--
-
-/usr/include/qt5/QtGui/qscreen.h
-QtGui/qtguiglobal.h
--
-QtCore/QList
--
-QtCore/QObject
--
-QtCore/QRect
--
-QtCore/QSize
--
-QtCore/QSizeF
--
-QtGui/QTransform
--
-QtCore/qnamespace.h
 -
 
 /usr/include/qt5/QtGui/qtextcursor.h
