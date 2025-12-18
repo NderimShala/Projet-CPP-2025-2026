@@ -807,7 +807,7 @@ void ApplicGarageWindow::on_pushButtonAddOption_clicked()
             Option o = Garage::getInstance().getOption(index);
             projet.addOption(o);
 
-            setTableOption(index, o.getCode(), o.getLabel(), o.getPrice());
+            setTableOption(projet.getnumOption()-1, o.getCode(), o.getLabel(), o.getPrice());
 
             setPrice(projet.getPrice());
         }
@@ -842,9 +842,16 @@ void ApplicGarageWindow::on_pushButtonRemoveOption_clicked()
             
             projet.removeOption(o->getCode());
 
-            setTableOption(index, "","", -1.0);
+            // Après suppression, Car::removeOption() décale (shift) les options vers la gauche.
+            // On redessine donc les 5 lignes pour garder l'UI synchronisée.
+            for(int i = 0; i < 5; i++)
+            {
+                Option* opt = projet[i];
+                if(opt == nullptr) setTableOption(i, "", "", -1.0);
+                else setTableOption(i, opt->getCode(), opt->getLabel(), opt->getPrice());
+            }
 
-            setPrice(projet.getPrice());  
+            setPrice(projet.getPrice());
             
         }
         catch(const OptionException& e)
