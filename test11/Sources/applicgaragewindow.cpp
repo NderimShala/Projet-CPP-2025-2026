@@ -911,6 +911,13 @@ void ApplicGarageWindow::on_actionLogin_triggered()
 
     setTitle(it->getLastName() + " " + it->getFirstName());
 
+    //réaffichage de des employés
+    clearTableEmployees();
+    for (auto it = listeEmployees.begin(); it != listeEmployees.end(); it++)
+    {
+        addTupleTableEmployees(it->tuple());
+    }
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
